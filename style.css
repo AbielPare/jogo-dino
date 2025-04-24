@@ -7,8 +7,10 @@ body {
 
 #game {
     position: relative;
-    width: 800px;
-    height: 200px;
+    width: 90vw;
+    max-width: 800px;
+    height: 25vh;
+    min-height: 200px;
     background-color: #000000;
     overflow: hidden;
     border: 2px solid #333;
@@ -24,33 +26,35 @@ body {
     padding: 5px 10px;
     border-radius: 5px;
     z-index: 5;
+    font-size: 1rem;
 }
 
 #dino, #obstaculo, #moeda {
     position: absolute;
     bottom: 0;
-    width: 50px;
+    width: 10vw;
+    max-width: 50px;
 }
 
 #dino {
-    left: 50px;
+    left: 6vw;
     transition: bottom 0.3s ease;
 }
 
 #obstaculo {
-    left: 800px;
+    left: 100%;
 }
 
 #moeda {
-    left: 1200px;
-    bottom: 80px;
+    left: 150%;
+    bottom: 40%;
 }
 
 #pause-btn {
     display: block;
     margin: 10px auto;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 1rem;
     cursor: pointer;
 }
 
@@ -65,19 +69,41 @@ body {
     border: 2px solid #444;
     border-radius: 10px;
     z-index: 10;
+    width: 80%;
+    max-width: 300px;
 }
 
 #mensagem-game-over p {
-    font-size: 24px;
+    font-size: 1.5rem;
     margin-bottom: 15px;
 }
 
 #mensagem-game-over button {
-    font-size: 16px;
+    font-size: 1rem;
     padding: 10px 20px;
     cursor: pointer;
 }
 
 .oculto {
     display: none;
+}
+
+/* Media Query para telas pequenas */
+@media (max-width: 600px) {
+    #moeda-contador {
+        font-size: 0.9rem;
+    }
+
+    #pause-btn {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+
+    #mensagem-game-over p {
+        font-size: 1.2rem;
+    }
+
+    #mensagem-game-over button {
+        font-size: 0.9rem;
+    }
 }

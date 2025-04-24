@@ -9,12 +9,20 @@ const reiniciarBtn = document.getElementById('reiniciar-btn');
 let moedas = 0;
 let pausado = false;
 
-// PULO
+// Teclado (computador)
 document.addEventListener('keydown', function (e) {
     if ((e.code === 'Space' || e.code === 'ArrowUp') && !pausado) {
         pular();
     }
 });
+
+// Toque na tela (celular)
+document.addEventListener('touchstart', function (e) {
+    if (!pausado) {
+        pular();
+    }
+});
+
 
 function pular() {
     if (!dino.classList.contains('pulando')) {
