@@ -1,0 +1,83 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    background-color: #FF69B4;
+}
+
+#game {
+    position: relative;
+    width: 800px;
+    height: 200px;
+    background-color: #000000;
+    overflow: hidden;
+    border: 2px solid #333;
+    margin: 20px auto;
+}
+
+#moeda-contador {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-weight: bold;
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    z-index: 5;
+}
+
+#dino, #obstaculo, #moeda {
+    position: absolute;
+    bottom: 0;
+    width: 50px;
+}
+
+#dino {
+    left: 50px;
+    transition: bottom 0.3s ease;
+}
+
+#obstaculo {
+    left: 800px;
+}
+
+#moeda {
+    left: 1200px;
+    bottom: 80px;
+}
+
+#pause-btn {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#mensagem-game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255,255,255,0.95);
+    padding: 30px;
+    text-align: center;
+    border: 2px solid #444;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+#mensagem-game-over p {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+#mensagem-game-over button {
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.oculto {
+    display: none;
+}
