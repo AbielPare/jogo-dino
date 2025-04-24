@@ -9,21 +9,7 @@ const reiniciarBtn = document.getElementById('reiniciar-btn');
 let moedas = 0;
 let pausado = false;
 
-// Teclado (computador)
-document.addEventListener('keydown', function (e) {
-    if ((e.code === 'Space' || e.code === 'ArrowUp') && !pausado) {
-        pular();
-    }
-});
-
-// Toque na tela (celular)
-document.addEventListener('touchstart', function (e) {
-    if (!pausado) {
-        pular();
-    }
-});
-
-
+// Função de pulo
 function pular() {
     if (!dino.classList.contains('pulando')) {
         dino.classList.add('pulando');
@@ -35,20 +21,34 @@ function pular() {
     }
 }
 
-// MOVIMENTO DOS ELEMENTOS
+// Evento de teclado (computador)
+document.addEventListener('keydown', function (e) {
+    if ((e.code === 'Space' || e.code === 'ArrowUp') && !pausado) {
+        pular();
+    }
+});
+
+// Evento de toque (celular)
+document.addEventListener('touchstart', function () {
+    if (!pausado) {
+        pular();
+    }
+});
+
+// Movimento dos elementos
 function moverElemento(elemento, velocidade) {
     let pos = parseInt(window.getComputedStyle(elemento).left);
     if (pos < -50) {
-        elemento.style.left = '800px';
+        elemento.style.left = '100%';
         if (elemento === moeda) {
-            elemento.style.bottom = (Math.random() * 100 + 50) + 'px'; // Altura aleatória
+            elemento.style.bottom = (Math.random() * 100 + 50) + 'px';
         }
     } else {
         elemento.style.left = (pos - velocidade) + 'px';
     }
 }
 
-// COLISÃO COM MOEDA
+// Detecção de colisão com moeda
 function detectarMoeda() {
     const dinoRect = dino.getBoundingClientRect();
     const moedaRect = moeda.getBoundingClientRect();
@@ -61,11 +61,11 @@ function detectarMoeda() {
     ) {
         moedas++;
         moedaContador.textContent = `Moedas: ${moedas}`;
-        moeda.style.left = '800px'; // Reset moeda
+        moeda.style.left = '100%';
     }
 }
 
-// COLISÃO COM OBSTÁCULO
+// Detecção de colisão com obstáculo
 function detectarColisao() {
     const dinoRect = dino.getBoundingClientRect();
     const obstaculoRect = obstaculo.getBoundingClientRect();
@@ -80,18 +80,18 @@ function detectarColisao() {
     }
 }
 
-// GAME OVER
+// Game over
 function gameOver() {
     pausado = true;
     mensagemGameOver.classList.remove('oculto');
 }
 
-// REINICIAR
+// Reiniciar o jogo
 reiniciarBtn.addEventListener('click', () => {
     location.reload();
 });
 
-// LOOP DO JOGO
+// Loop do jogo
 setInterval(() => {
     if (!pausado) {
         moverElemento(obstaculo, 5);
@@ -101,7 +101,7 @@ setInterval(() => {
     }
 }, 30);
 
-// PAUSAR/RETOMAR
+// Botão de pause
 pauseBtn.addEventListener('click', () => {
     pausado = !pausado;
     pauseBtn.textContent = pausado ? '▶️ Retomar' : '⏸️ Pausar';
