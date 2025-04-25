@@ -48,7 +48,7 @@ function moverElemento(elemento, velocidade) {
     }
 }
 
-// Detecção de colisão com moeda
+// Detectar se vai pegar a moeda
 function detectarMoeda() {
     const dinoRect = dino.getBoundingClientRect();
     const moedaRect = moeda.getBoundingClientRect();
@@ -65,7 +65,7 @@ function detectarMoeda() {
     }
 }
 
-// Detecção de colisão com obstáculo
+// Detectar se vai bater no obstáculo
 function detectarColisao() {
     const dinoRect = dino.getBoundingClientRect();
     const obstaculoRect = obstaculo.getBoundingClientRect();
